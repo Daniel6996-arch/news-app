@@ -12,10 +12,9 @@ def index():
 
     # Getting news articles
     tesla_news = get_news_article('tesla')
-    upcoming_movie = get_movies('upcoming')
-    now_showing_movie = get_movies('now_playing')
+    apple_news = get_news_article('apple')
     title = 'Home - Welcome to The best News resource Online'
-    return render_template('index.html', title = title, tesla = _movies, upcoming = upcoming_movie, now_showing = now_showing_movie )
+    return render_template('index.html', title = title, tesla = tesla_news, apple = apple_news )
 
 @app.route('/movie/<int:id>')
 def movie(id):

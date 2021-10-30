@@ -1,9 +1,10 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..requests import get_movies,get_movie,search_movie
+from ..requests import get_news
+from ..models import News
 
 
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -16,7 +17,7 @@ def index():
     title = 'Home - Welcome to The best News resource Online'
     return render_template('index.html', title = title, tesla = tesla_news, apple = apple_news )
 
-@app.route('/movie/<int:id>')
+@main.route('/movie/<int:id>')
 def movie(id):
 
     '''

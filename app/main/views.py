@@ -11,8 +11,8 @@ def index():
     '''
 
     # Getting news articles
-    tesla_news = get_news_article('tesla')
-    apple_news = get_news_article('apple')
+    tesla_news = get_news('tesla')
+    apple_news = get_news('apple')
     title = 'Home - Welcome to The best News resource Online'
     return render_template('index.html', title = title, tesla = tesla_news, apple = apple_news )
 

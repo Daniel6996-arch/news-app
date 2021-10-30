@@ -45,19 +45,22 @@ def process_results(news_list):
     '''
     news_results = []
     for news_item in news_list:
-        id = news_item.get('id')
-        title = news_item.get('original_title')
-        overview = news_item.get('overview')
-        poster = news_item.get('poster_path')
-        vote_average = news_item.get('vote_average')
-        vote_count = news_item.get('vote_count')
+        source = news_item.get('source.name')
+        title = news_item.get('title')
+        author = news_item.get('author')
+        description = news_item.get('description')
+        url = news_item.get('url')
+        poster = news_item.get('urlToImage')
+        publishedAt = news_item.get('publishedAt')
+        content = news_item.get('content')
 
         if poster:
-            news_object = News(id,title,overview,poster,vote_average,vote_count)
+            news_object = News(source,title,author,description,url,poster,publishedAt,content)
             news_results.append(news_object)
 
     return news_results
 
+'''
 def get_movie(id):
     get_movie_details_url = base_url.format(id,api_key)
 
@@ -78,3 +81,4 @@ def get_movie(id):
 
     return movie_object    
 
+'''

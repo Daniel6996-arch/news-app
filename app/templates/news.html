@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
         {% block content %}
-         <h2 class="display-2">display</h2>
+        <ul type="none">
+            {% for news in tesla %}
+               <div id="unordered">
+                   <li><img src="{{ news.poster }}" alt="photo"></li>
+                   <li><span id="italics">Title: </span>{{ news.title }}</li>
+                   <li><span id="italics">Author: </span>{{ news.author }}</li>
+                   <li><span id="italics">About: </span>{{ news.description }}</li>
+                   <li><span id="italics">Published on: </span>{{ news.publishedAt }}</li>
+                   <li><span id="italics">:Content </span>{{ news.content }}</li>
+               </div>
+                   <li><a href="{{ news.url }}">{{ news.url }}</a></li>
+            {% endfor %}
+        </ul>
         {% endblock%}
    

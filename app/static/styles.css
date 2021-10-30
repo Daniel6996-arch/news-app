@@ -1,0 +1,12 @@
+body{
+    background-color: yellow;
+}
+#header{
+    background-color: thistle;
+}
+#unordered{
+    border: 1px solid black;
+}
+#italics{
+    font-style: italic;
+}

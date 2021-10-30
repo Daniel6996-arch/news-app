@@ -15,7 +15,7 @@ def index():
     tesla_news = get_news('tesla')
     apple_news = get_news('apple')
     title = 'Home - Welcome to The best News resource Online'
-    return render_template('index.html', title = title, tesla = tesla_news, apple = apple_news )
+    return render_template('news.html', title = title, tesla = tesla_news, apple = apple_news )
 
 @main.route('/movie/<int:id>')
 def movie(id):

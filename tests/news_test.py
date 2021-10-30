@@ -1,5 +1,5 @@
 import unittest
-from app.models import Movie
+from app.models import News
 
 class MovieTest(unittest.TestCase):
     '''
@@ -11,8 +11,10 @@ class MovieTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_news = News('Forbes','Python Must Be Crazy',,'Phantom''A thrilling new Python Series','/khsjha27hbs','/khsjha27hbs',8.5,129993)
-
+        self.new_news = News('Forbes','Python Must Be Crazy','Phantom''A thrilling new Python Series','/khsjha27hbs','/khsjha27hbs','date','content')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_news,News))
+
+if __name__ == '__main__':
+    unittest.main()  

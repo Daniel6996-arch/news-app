@@ -1,7 +1,7 @@
 import urllib.request,json
-from .models import Movie
+from .models import News
 
-News = models.News
+News = News
 
 # Getting api key
 api_key = None
@@ -14,7 +14,7 @@ def configure_request(app):
     base_url = app.config['NEWS_API_BASE_URL']
 
 
-def get_newss(q):
+def get_news(q):
     '''
     Function that gets the json response to our url request
     '''
@@ -26,14 +26,14 @@ def get_newss(q):
 
         news_results = None  #replacable with []
 
-        if get_news_response['results']:
-            news_results_list = get_news_response['results']
-            news_results = process_news(news_results_list)
+        if get_news_response['articles']:
+            news_results_list = get_news_response['articles']
+            news_results = process_articles(news_results_list)
 
 
     return news_results
 
-def process_results(news_list):
+def process_articles(news_list):
     '''
     Function  that processes the news result and transform them to a list of Objects
 
@@ -45,7 +45,7 @@ def process_results(news_list):
     '''
     news_results = []
     for news_item in news_list:
-        source = news_item.get('source.name')
+       
         title = news_item.get('title')
         author = news_item.get('author')
         description = news_item.get('description')
@@ -55,7 +55,7 @@ def process_results(news_list):
         content = news_item.get('content')
 
         if poster:
-            news_object = News(source,title,author,description,url,poster,publishedAt,content)
+            news_object = News(title,author,description,url,poster,publishedAt,content)
             news_results.append(news_object)
 
     return news_results

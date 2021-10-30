@@ -6,7 +6,17 @@ body{
 }
 #unordered{
     border: 1px solid black;
+    display: flex;
+    flex-direction: row;
 }
 #italics{
     font-style: italic;
+}
+a{
+    text-decoration: none;
+}
+img{
+    width: 20vw;
+    height: 30vh;
+    padding: 1vh;
 }

@@ -3,14 +3,18 @@
         <ul type="none">
             {% for news in tesla %}
                <div id="unordered">
-                   <li><img src="{{ news.poster }}" alt="photo"></li>
-                   <li><span id="italics">Title: </span>{{ news.title }}</li>
-                   <li><span id="italics">Author: </span>{{ news.author }}</li>
-                   <li><span id="italics">About: </span>{{ news.description }}</li>
-                   <li><span id="italics">Published on: </span>{{ news.publishedAt }}</li>
-                   <li><span id="italics">:Content </span>{{ news.content }}</li>
-               </div>
-                   <li><a href="{{ news.url }}">{{ news.url }}</a></li>
+                   <div>
+                    <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
+                   </div>
+                   <div>
+                    <li><span id="italics" class="blockquote-footer text-center">Title: </span>{{ news.title }}</li>
+                    <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
+                    <li><span id="italics" class="blockquote-footer">About: </span>{{ news.description }}</li>
+                    <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
+                    <li><span id="italics" class="blockquote-footer">Content: </span>{{ news.content }}</li>
+                    <li><a href="{{ news.url }}">Go to article</a></li>
+                   </div>
+                </div>   
             {% endfor %}
         </ul>
         {% endblock%}

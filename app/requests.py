@@ -1,6 +1,7 @@
 import urllib.request,json
 from .models import News
 
+
 News = News
 
 # Getting api key
@@ -43,6 +44,7 @@ def process_articles(news_list):
     Returns :
         news_results: A list of news objects
     '''
+   
     news_results = []
     for news_item in news_list:
        

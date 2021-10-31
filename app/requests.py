@@ -15,11 +15,11 @@ def configure_request(app):
     base_url = app.config['NEWS_API_BASE_URL']
 
 
-def get_news(q):
+def get_news(source,q,tesla):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(q,api_key)
+    get_news_url = base_url.format(source,q,tesla,api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()

@@ -1,6 +1,6 @@
-class News:
+class Article:
     '''
-    News class to define News Objects
+    Article class to define News Objects
     '''
 
     def __init__(self,title,author,description,url,urlToImage,publishedAt,content):

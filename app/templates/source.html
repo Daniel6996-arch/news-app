@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block start %}
+<h1 class="text-center border-bottom">News Sources</h1>
+<div class="border p-5"> 
+    <h1 class="display-6" >Us business news source <span id="italics"><button class="btn btn-success button">click to see articles</button></span></h1>
+{% for news in us %}
+<div class="hide">
+    <ul type="none">
+        <li>{{ news.title }}</li>
+        <li><a href="{{  news.url  }}">{{ news.url }}</a></li>
+    </ul>
+</div>
+{% endfor %}
+</div>
+
+<div class="border p-5">
+    <h1 class="display-6">Apple news source <span id="italics"><button class="btn btn-success button-one">click to see articles</button></span></h1>
+{% for news in apple %}
+<div class="hide-one">
+    <ul type="none">
+        <li>{{ news.title }}</li>
+        <li><a href="{{  news.url  }}">{{ news.url }}</a></li>
+    </ul>
+</div>
+{% endfor %}
+</div>
+
+<div class="border p-5">
+    <h1 class="display-6">Tesla news source <span id="italics"><button class="btn btn-success button-two">click to see articles</button></span></h1>
+{% for news in tesla %}
+<div class="hide-two">
+    <ul type="none">
+        <li>{{ news.title }}</li>
+        <li><a href="{{  news.url  }}">{{ news.url }}</a></li>
+    </ul>
+</div>
+{% endfor %}
+</div>
+
+<div class="border p-5">
+    <h1 class="display-6">Techcrunch news source <span id="italics"><button class="btn btn-success button-three">click to see articles</button></span></h1>
+{% for news in tesla %}
+<div class="hide-three">
+    <ul type="none">
+        <li>{{ news.title }}</li>
+        <li><a href="{{  news.url  }}">{{ news.url }}</a></li>
+    </ul>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

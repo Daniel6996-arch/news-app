@@ -1,8 +1,8 @@
 import urllib.request,json
-from .models import News
+from .models import Article
 
 
-News = News
+News = Article
 
 # Getting api key
 api_key = None
@@ -57,7 +57,7 @@ def process_articles(news_list):
         content = news_item.get('content')
 
         if poster:
-            news_object = News(title,author,description,url,poster,publishedAt,content)
+            news_object = Article(title,author,description,url,poster,publishedAt,content)
             news_results.append(news_object)
 
     return news_results

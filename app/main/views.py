@@ -17,13 +17,18 @@ def index():
     title = 'Home - Welcome to The best News resource Online'
     return render_template('news.html', title = title, tesla = tesla_news, apple = apple_news )
 
-@main.route('/movie/<int:id>')
-def movie(id):
+@main.route('/sources')
+def sources():
 
     '''
-    View movie page function that returns the movie details page and its data
+    View root page function that returns the index page and some data
     '''
-    movie = get_movie(id)
-    title = f'{movie.title}'
 
-    return render_template('movie.html',title = title,movie = movie)
+    # Getting news sources
+    tesla_news = get_news('tesla')
+    apple_news = get_news('apple')
+    country = get_news('us')
+    sources = get_news('techcrunch')
+    domains = get_news('wsj.com')
+    title = 'Sources - Welcome to The best News resource Online'
+    return render_template('sources.html', title = title, tesla = tesla_news, apple = apple_news, us = country, techcrunch = sources, wsj.com = domains )

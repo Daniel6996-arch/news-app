@@ -1,7 +1,39 @@
 {% extends 'base.html' %}
-    
+
+{% block navbar %}
+<nav class="navbar  navbar-light bg-light container-fluid" id="navbar">
+    <div class="collapse navbar-collapse container-fluid" id="navbarTogglerDemo01">
+      <h1  class="navbar-brand" href="#"><span class="display-1">OakNews App</span></h1>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+       <div id="ul">
+        <div id="u">
+            <li class="nav-item active">
+                <a class="nav-link text-primary" href="{{ url_for('main.index') }}">Home</a>
+              </li>
+        </div>
+        <div id="margin">
+            <p><span id="italics" class="text-dark">Jump to source</span></p>
+            <li class="nav-item active">
+                <a class="nav-link text-primary" href="#one">United States business articles</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-primary" href="#two">Apple News articles</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-primary" href="#three">Tesla News articles</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-primary" href="#four">Techcrunch News articles</a>
+              </li>
+        </div>  
+       </div>
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
 {% block start %}
-<h1 class="text-center">United States business articles</h1>
+<h1 class="text-center" id="one">United States business articles</h1>
 <ul type="none">
     {% for news in us %}
        <div id="unordered">
@@ -9,7 +41,7 @@
             <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
            </div>
            <div>
-            <li><span id="italics" class="blockquote-footer text-center">Title: </span>{{ news.title }}</li>
+            <li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
             <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
             <li><span id="italics" class="blockquote-footer">About: </span>{{ news.description }}</li>
             <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
@@ -19,7 +51,7 @@
     {% endfor %}
 </ul>
 
-<h1 class="text-center">Apple News articles</h1>
+<h1 class="text-center" id="two">Apple News articles</h1>
 <ul type="none">
     {% for news in apple %}
        <div id="unordered">
@@ -27,7 +59,7 @@
             <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
            </div>
            <div>
-            <li><span id="italics" class="blockquote-footer text-center">Title: </span>{{ news.title }}</li>
+            <li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
             <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
             <li><span id="italics" class="blockquote-footer">About: </span>{{ news.description }}</li>
             <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
@@ -38,7 +70,7 @@
     {% endfor %}
 </ul>
 
-<h1 class="text-center">Tesla News articles</h1>
+<h1 class="text-center" id="three">Tesla News articles</h1>
 <ul type="none">
     {% for news in tesla %}
        <div id="unordered">
@@ -46,7 +78,7 @@
             <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
            </div>
            <div>
-            <li><span id="italics" class="blockquote-footer text-center">Title: </span>{{ news.title }}</li>
+            <li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
             <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
             <li><span id="italics" class="blockquote-footer">About: </span>{{ news.description }}</li>
             <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
@@ -57,7 +89,7 @@
     {% endfor %}
 </ul>
         
-<h1 class="text-center">Techcrunch News articles</h1>
+<h1 class="text-center" id="four">Techcrunch News articles</h1>
 <ul type="none">
     {% for news in techcrunch  %}
        <div id="unordered">
@@ -65,7 +97,7 @@
             <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
            </div>
            <div>
-            <li><span id="italics" class="blockquote-footer text-center">Title: </span>{{ news.title }}</li>
+            <li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
             <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
             <li><span id="italics" class="blockquote-footer">About: </span>{{ news.description }}</li>
             <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
@@ -75,5 +107,7 @@
         </div>   
     {% endfor %}
 </ul>
+
+<a class="btn btn-primary" id="fixed" href="#navbar">Back to top</a>
 {% endblock%}
    

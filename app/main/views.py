@@ -19,7 +19,7 @@ def index():
     return render_template('source.html', title = title, tesla = tesla_news, apple = apple_news, us = us_news, techcrunch = techcrunch_news )
 
 @main.route('/articles')
-def article():
+def articles():
 
     '''
     View root page function that returns the source page and some data

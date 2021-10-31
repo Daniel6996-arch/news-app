@@ -3,7 +3,7 @@
 This project was generated with [Flask] version 2.0.2
 
 ## Description  
-#### {This is an application of the Octo Quotes} {30/10/2021}  
+#### {This is an application that consumes a news api and renders the articles and news sources on a webpage} {30/10/2021}  
 #### Authored By **{Daniel6996-arch}**
 ## Behavior-Driven Development
 As a user, I would like to see various news sources on the homepage of the application.   

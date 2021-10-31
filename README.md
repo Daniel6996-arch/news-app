@@ -1,6 +1,6 @@
 # OakNews App
 
-This project was generated with [Flask]) version 2.0.2
+This project was generated with [Flask] version 2.0.2
 
 ## Description  
 #### {This is an application of the Octo Quotes} {30/10/2021}  

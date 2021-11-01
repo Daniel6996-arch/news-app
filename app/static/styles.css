@@ -1,0 +1,57 @@
+
+#header{
+    background-color: thistle;
+}
+#unordered{
+   
+    display: flex;
+    flex-direction: row;
+}
+#italics{
+    font-style: italic;
+}
+a{
+    text-decoration: none;
+}
+img{
+    width: 20vw;
+    height: 30vh;
+    padding: 1vh;
+}
+#navbar{
+     margin: 0px;
+     padding: 0px;
+}
+.hide, .hide-one, .hide-two, .hide-three{
+    display: none;
+}
+#navbarTogglerDemo01{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#ul{
+    display: flex;
+    flex-direction: row;
+}
+#margin{
+    margin-left: 3vw;
+    padding: 0px;
+}
+#fixed{
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+}
+.text-dark{
+    padding: 0px;
+}
+#row{
+    
+    border: 1px solid black;
+    
+}
+#source{
+    padding: 0vh 2vw 0vh 2vw;
+}

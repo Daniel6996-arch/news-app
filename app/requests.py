@@ -1,24 +1,27 @@
 import urllib.request,json
-from .models import News
+from .models import Article, Source
 
-News = News
+
+News = Article
 
 # Getting api key
 api_key = None
-# Getting the movie base url
+# Getting the base and sources url
 base_url = None
+sources_url = None
 
 def configure_request(app):
-    global api_key,base_url
+    global api_key,base_url,sources_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_API_BASE_URL']
+    sources_url = app.config['NEWS_API_SOURCES_URL']
 
 
-def get_news(q):
+def get_news(source,q,tesla):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(q,api_key)
+    get_news_url = base_url.format(source,q,tesla,api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -33,7 +36,28 @@ def get_news(q):
 
     return news_results
 
-def process_articles(news_list):
+
+def get_source(source):
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_sources_url = sources_url.format(source,api_key)
+
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_sources_data = url.read()
+        get_sources_response = json.loads(get_sources_data)
+
+        sources_results = None  #replacable with []
+
+        if get_sources_response['sources']:
+            sources_results_list = get_sources_response['sources']
+            sources_results = process_sources(sources_results_list)
+
+
+    return sources_results
+
+
+def process_articles(news_list): #articles_url
     '''
     Function  that processes the news result and transform them to a list of Objects
 
@@ -43,7 +67,8 @@ def process_articles(news_list):
     Returns :
         news_results: A list of news objects
     '''
-    news_results = []
+   
+    news_results = [] 
     for news_item in news_list:
        
         title = news_item.get('title')
@@ -55,30 +80,36 @@ def process_articles(news_list):
         content = news_item.get('content')
 
         if poster:
-            news_object = News(title,author,description,url,poster,publishedAt,content)
+            news_object = Article(title,author,description,url,poster,publishedAt,content)
             news_results.append(news_object)
 
     return news_results
 
-'''
-def get_movie(id):
-    get_movie_details_url = base_url.format(id,api_key)
+def process_sources(sources_list): #sources_url
+    '''
+    Function  that processes the news result and transform them to a list of Objects
 
-    with urllib.request.urlopen(get_movie_details_url) as url:
-        movie_details_data = url.read()
-        movie_details_response = json.loads(movie_details_data)
+    Args:
+        news_list: A list of dictionaries that contain sources details
 
-        movie_object = None  #replacable with []
-        if movie_details_response:
-            id = movie_details_response.get('id')
-            title = movie_details_response.get('original_title')
-            overview = movie_details_response.get('overview')
-            poster = movie_details_response.get('poster_path')
-            vote_average = movie_details_response.get('vote_average')
-            vote_count = movie_details_response.get('vote_count')
+    Returns :
+        news_results: A list of sorces objects
+    '''
+   
+    sources_results = []
+    for source_item in sources_list:
+       
+        id = source_item.get('id')
+        name = source_item.get('name')
+        description = source_item.get('description')
+        url = source_item.get('url')
+        category = source_item.get('category')
+        country = source_item.get('country')
 
-            movie_object = Movie(id,title,overview,poster,vote_average,vote_count)
+        if name:
+            source_object = Source(id,name,description,url,category,country)
+            sources_results.append(source_object)
 
-    return movie_object    
+    return sources_results
 
-'''
+

@@ -5,7 +5,7 @@ body{
     background-color: thistle;
 }
 #unordered{
-    border: 1px solid black;
+   
     display: flex;
     flex-direction: row;
 }

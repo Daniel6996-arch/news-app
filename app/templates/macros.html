@@ -1,0 +1,29 @@
+{% macro displayArticles(article_list) %}
+
+    {% for news in article_list %}
+    <div id="unordered">
+        <div>
+         <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
+        </div>
+        <div>
+         <li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
+         <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
+         <li><span id="italics" class="blockquote-footer">Description: </span>{{ news.description }}</li>
+         <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
+         <li><a href="{{ news.url }}" target="_blank">Go to article</a></li>
+        </div>
+     </div>   
+    {% endfor %}
+
+{% endmacro %}
+
+
+
+{% macro displaySources(source_list) %}
+
+{% for news in source_list %}
+<li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
+<li><a href="{{  news.url  }}">Source</a></li>
+{% endfor %}
+
+{% endmacro %}

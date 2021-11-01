@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro%}
 
 {% block navbar %}
 <nav class="navbar  navbar-light bg-light container-fluid" id="navbar">
@@ -35,77 +36,22 @@
 {% block start %}
 <h1 class="text-center" id="one">United States business articles</h1>
 <ul type="none">
-    {% for news in us %}
-       <div id="unordered">
-           <div>
-            <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
-           </div>
-           <div>
-            <li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
-            <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
-            <li><span id="italics" class="blockquote-footer">About: </span>{{ news.description }}</li>
-            <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
-            <li><a href="{{ news.url }}" target="_blank">Go to article</a></li>
-           </div>
-        </div>   
-    {% endfor %}
+    {{ macro.displayArticles(us) }}
 </ul>
 
 <h1 class="text-center" id="two">Apple News articles</h1>
 <ul type="none">
-    {% for news in apple %}
-       <div id="unordered">
-           <div>
-            <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
-           </div>
-           <div>
-            <li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
-            <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
-            <li><span id="italics" class="blockquote-footer">About: </span>{{ news.description }}</li>
-            <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
-            <li><span id="italics" class="blockquote-footer">Content: </span>{{ news.content }}</li>
-            <li><a href="{{ news.url }}" target="_blank">Go to article</a></li>
-           </div>
-        </div>   
-    {% endfor %}
+    {{ macro.displayArticles(apple) }}
 </ul>
 
 <h1 class="text-center" id="three">Tesla News articles</h1>
 <ul type="none">
-    {% for news in tesla %}
-       <div id="unordered">
-           <div>
-            <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
-           </div>
-           <div>
-            <li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
-            <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
-            <li><span id="italics" class="blockquote-footer">About: </span>{{ news.description }}</li>
-            <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
-            <li><span id="italics" class="blockquote-footer">Content: </span>{{ news.content }}</li>
-            <li><a href="{{ news.url }}" target="_blank">Go to article</a></li>
-           </div>
-        </div>   
-    {% endfor %}
+    {{ macro.displayArticles(tesla) }}
 </ul>
         
 <h1 class="text-center" id="four">Techcrunch News articles</h1>
 <ul type="none">
-    {% for news in techcrunch  %}
-       <div id="unordered">
-           <div>
-            <li><img src="{{ news.urlToImage }}"  alt="Photo"></li>
-           </div>
-           <div>
-            <li><span id="italics" class="blockquote-footer">Title: </span>{{ news.title }}</li>
-            <li><span id="italics" class="blockquote-footer">Author: </span>{{ news.author }}</li>
-            <li><span id="italics" class="blockquote-footer">About: </span>{{ news.description }}</li>
-            <li><span id="italics" class="blockquote-footer">Published on: </span>{{ news.publishedAt }}</li>
-            <li><span id="italics" class="blockquote-footer">Content: </span>{{ news.content }}</li>
-            <li><a href="{{ news.url }}" target="_blank">Go to article</a></li>
-           </div>
-        </div>   
-    {% endfor %}
+    {{ macro.displayArticles(techcrunch) }}
 </ul>
 
 <a class="btn btn-primary" id="fixed" href="#navbar">Back to top</a>

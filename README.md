@@ -11,7 +11,7 @@ As a user, I would also want to select a news source and see all news articles f
 As a user, I would want to see the image, description and the time a news article was created.  
 As a user, I would want to click on an article and read the full article on the source website.  
 ## link
-https://daniel6996-arch.github.io/news-app/
+ https://dannewsapp.herokuapp.com/ 
 ## Setup/Installation Requirements
 *This website best works on latest version browsers that support javascript.   
 *Older browsers my work ineffectively.   

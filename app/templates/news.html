@@ -14,9 +14,6 @@
         </div>
         <div id="margin">
             <p><span id="italics" class="text-dark">Jump to articles source</span></p>
-            <li class="nav-item active">
-                <a class="nav-link text-primary" href="#one">United States business articles</a>
-              </li>
               <li class="nav-item active">
                 <a class="nav-link text-primary" href="#two">Apple News articles</a>
               </li>
@@ -34,10 +31,6 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="text-center" id="one">United States business articles</h1>
-<ul type="none">
-    {{ macro.displayArticles(us) }}
-</ul>
 
 <h1 class="text-center" id="two">Apple News articles</h1>
 <ul type="none">

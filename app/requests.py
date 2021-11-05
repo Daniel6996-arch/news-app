@@ -15,11 +15,11 @@ def configure_request(app):
     sources_url = app.config['NEWS_API_SOURCES_URL']
 
 
-def get_news(article):
+def get_news(article,q,e):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(article,api_key)
+    get_news_url = base_url.format(article,q,e,api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()

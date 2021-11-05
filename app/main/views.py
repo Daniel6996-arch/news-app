@@ -25,10 +25,10 @@ def articles():
     View root page function that returns the index page and its data
     '''
      # Getting news articles
-    tesla_news = get_news('tesla')
-    apple_news = get_news('apple')
-   # us_news = get_news('top-headlines','country','us')
-    #techcrunch_news = get_news('everything','sources','techcrunch')
+    tesla_news = get_news('everything','q','tesla')
+    apple_news = get_news('everything','q','apple')
+    us_news = get_news('top-headlines','country','us')
+    techcrunch_news = get_news('everything','sources','techcrunch')
     title = 'Home - Welcome to The best News resource Online'
-    return render_template('news.html', title = title, tesla = tesla_news, apple = apple_news )
+    return render_template('news.html', title = title, tesla = tesla_news, apple = apple_news, techcrunch = techcrunch_news )
     

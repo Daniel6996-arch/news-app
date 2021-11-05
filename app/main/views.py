@@ -30,5 +30,5 @@ def articles():
    # us_news = get_news('top-headlines','country','us')
     #techcrunch_news = get_news('everything','sources','techcrunch')
     title = 'Home - Welcome to The best News resource Online'
-    return render_template('news.html', title = title, tesla = tesla_news )
+    return render_template('news.html', title = title, tesla = tesla_news, apple = apple_news )
     

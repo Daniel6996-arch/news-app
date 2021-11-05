@@ -20,19 +20,16 @@
 
 
 {% macro displaySources(source_list) %}
-
-{% for source in source_list %}
-
-<div class="border p-5" id="source">
-<li><span id="italics" class="blockquote-footer">Source id: </span>{{ source.id }}</li>
-<li><span id="italics" class="blockquote-footer">Source: </span>{{ source.name }}</li>
-<li><span id="italics" class="blockquote-footer">Description: </span>{{ source.description }}</li>
-<li><span id="italics" class="blockquote-footer">Category: </span>{{ source.category }}</li>
-<li><span id="italics" class="blockquote-footer">Country: </span>{{ source.country }}</li>
-<li><a href="{{  source.url  }}">Go to source</a></li>
-</div>
-{% endfor %}
-
+    {% for bulletin in source_list %}
+        <div class="border p-5" id="source">
+        <li><span id="italics" class="blockquote-footer">Source id: </span>{{ bulletin.id }}</li>
+        <li><span id="italics" class="blockquote-footer">Source: </span>{{ bulletin.name }}</li>
+        <li><span id="italics" class="blockquote-footer">Description: </span>{{ bulletin.description }}</li>
+        <li><span id="italics" class="blockquote-footer">Category: </span>{{ bulletin.category }}</li>
+        <li><span id="italics" class="blockquote-footer">Country: </span>{{ bulletin.country }}</li>
+        <li><a href="{{  bulletin.url  }}">Go to source</a></li>
+        </div>
+    {% endfor %}
 {% endmacro %}
 
 

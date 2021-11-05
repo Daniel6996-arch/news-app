@@ -2,8 +2,6 @@ import urllib.request,json
 from .models import Article, Source
 
 
-News = Article
-
 # Getting api key
 api_key = None
 # Getting the base and sources url
@@ -17,11 +15,11 @@ def configure_request(app):
     sources_url = app.config['NEWS_API_SOURCES_URL']
 
 
-def get_news(source,q,tesla):
+def get_news(article):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(source,q,tesla,api_key)
+    get_news_url = base_url.format(article,api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -37,11 +35,11 @@ def get_news(source,q,tesla):
     return news_results
 
 
-def get_source(source):
+def get_sources(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_sources_url = sources_url.format(source,api_key)
+    get_sources_url = sources_url.format(category,api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -105,10 +103,8 @@ def process_sources(sources_list): #sources_url
         url = source_item.get('url')
         category = source_item.get('category')
         country = source_item.get('country')
-
-        if name:
-            source_object = Source(id,name,description,url,category,country)
-            sources_results.append(source_object)
+        source_object = Source(id,name,description,url,category,country)
+        sources_results.append(source_object)
 
     return sources_results
 
